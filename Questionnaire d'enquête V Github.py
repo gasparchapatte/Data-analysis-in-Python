@@ -10,7 +10,6 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.cluster import KMeans
 from sklearn.cluster import DBSCAN
 from sklearn.decomposition import PCA
-import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
 import mglearn
