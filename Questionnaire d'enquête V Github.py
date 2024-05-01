@@ -166,31 +166,21 @@ X_test_scaled = minmaxscaler.transform(X_test_quant)
 
 print ("type(X_test_quant)")
 print (type(X_test_quant)) #Pandas dataframe
-# Créer les entrées pour les données quantitatives et catégorielles
 #Defines the name and shape of the KerasTensors
 input_quantitative = Input(shape=(X_train_quant.shape[1]), name='quantitative_input')
 input_categorical = Input(shape=(X_train_cat.shape[1]), name='categorical_input')
 
-# Defines the shape, the activation function and the input of the KerasTensors
+# Define the shape, the activation function and the input of the KerasTensors
 dense_quantitative = Dense(64, activation='relu')(input_quantitative)
 dense_categorical = Dense(64, activation='relu')(input_categorical)
-
 # Merges the quantitative and categorial inputs
 merged = Concatenate()([dense_quantitative, dense_categorical])
-
 # Defines the output and its activation function
 output = Dense(1, activation='sigmoid')(merged)
-
-# Créer le modèle
 model = Model(inputs=[input_quantitative, input_categorical], outputs=output)
-
-# Compiler le modèle
 model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-
-# Entraîner le modèle
 model.fit([X_train_quant, X_train_cat], y_train, epochs=10, batch_size=64, validation_split=0.2)
-
-# Évaluer le modèle sur les données de test
+# Evaluate the model
 loss, accuracy = model.evaluate([X_test_quant, X_test_cat], y_test)
 print("Loss sur les données de test:", loss)
 print("Précision sur les données de test:", accuracy)
