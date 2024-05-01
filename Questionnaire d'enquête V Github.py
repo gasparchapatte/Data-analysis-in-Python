@@ -258,7 +258,6 @@ plt.scatter(X_pca[indices_1, 0], X_pca[indices_1, 1], color='r', label='Classe 1
 plt.xlabel('First principal component')
 plt.ylabel('Second principal component')
 plt.title('Data visualisation after ACP')
-plt.legend()
 
 # K-means classification
 kmeans = KMeans(n_clusters=6, random_state=42)
@@ -303,7 +302,6 @@ plt.scatter(X_pca[indices_4, 0], X_pca[indices_4, 1], color='c', label='Classe 4
 plt.xlabel('First principal component')
 plt.ylabel('Second principal component')
 plt.title('Data visualisation after ACP')
-plt.legend()
 
 # Principal Components Analysis colored according to k-means groups 
 kmeans = KMeans(n_clusters=6, random_state=42)
@@ -335,4 +333,3 @@ plt.scatter(X_pca[indices_5, 0], X_pca[indices_5, 1], color='b', label='Classe 5
 plt.xlabel('First principal component')
 plt.ylabel('Second principal component')
 plt.title('Data visualisation after ACP')
-plt.legend()
